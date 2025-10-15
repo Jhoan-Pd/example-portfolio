@@ -28,9 +28,13 @@ export default async function Home({
     <div className="font-sans flex flex-col items-center">
       <LanguageSwitcher currentLang={lang} />
       <main className="grid grid-cols-12 gap-6 container mt-20 px-4 sm:px-6 md:px-10">
-        {/* Avatar Section */}
-        <div className="col-span-12 sm:col-span-4 md:col-span-3">
+        {/* Avatar and Interests Section */}
+        <div className="col-span-12 sm:col-span-4 md:col-span-3 flex flex-col gap-4">
           <AvatarSection />
+          <InterestsSection
+            title={dict.sections.interests.title}
+            items={dict.sections.interests.items}
+          />
         </div>
 
         {/* Intro Section */}
@@ -38,71 +42,8 @@ export default async function Home({
           <IntroSection intro={dict.intro} />
         </div>
 
-        {/* Interests Section */}
-        <div className="col-span-12">
-          <InterestsSection
-            title={dict.sections.interests.title}
-            items={dict.sections.interests.items}
-          />
-        </div>
-
-        {/* Experience Cards */}
-        <div className="col-span-12 sm:col-span-6 md:col-span-6">
-          <ExperienceCard
-            title={dict.sections.experience.freelance.title}
-            role={dict.sections.experience.freelance.role}
-            period={dict.sections.experience.freelance.period}
-            bullets={dict.sections.experience.freelance.bullets}
-          />
-        </div>
-        <div className="col-span-12 sm:col-span-6 md:col-span-6">
-          <ExperienceCard
-            title={dict.sections.experience.meetzed.title}
-            role={dict.sections.experience.meetzed.role}
-            period={dict.sections.experience.meetzed.period}
-            bullets={dict.sections.experience.meetzed.bullets}
-          />
-        </div>
-
-        {/* Design Tools Section */}
-        <div className="col-span-12 sm:col-span-6 md:col-span-6">
-          <DesignToolsSection
-            title={dict.sections.designTools}
-            tools={[
-              { name: "Ai", bgColor: "bg-[#360300]", textColor: "text-[#da9f4c]" },
-              { name: "Ps", bgColor: "bg-[#0b172a]", textColor: "text-[#74aaf2]" },
-              { name: "Id", bgColor: "bg-[#59051e]", textColor: "text-[#d84b6f]" },
-              { name: "Xd", bgColor: "bg-[#480d30]", textColor: "text-[#de6ff0]" },
-            ]}
-          />
-        </div>
-
-        {/* Editing Tools Section */}
-        <div className="col-span-12 sm:col-span-6 md:col-span-6">
-          <EditingToolsSection
-            title={dict.sections.editingTools.title}
-            tools={[
-              { name: "Ae", bgColor: "bg-[#0b172a]", textColor: "text-[#74aaf2]" },
-              { name: "Pr", bgColor: "bg-[#59051e]", textColor: "text-[#d84b6f]" },
-              { name: "C4D", bgColor: "bg-[#480d30]", textColor: "text-[#de6ff0]" },
-            ]}
-          />
-        </div>
-
-        {/* Languages Section */}
-        <div className="col-span-12 sm:col-span-6 md:col-span-6">
-          <LanguagesSection
-            title={dict.sections.languages.title}
-            languages={[
-              { name: "English", flag: "/uk.png" },
-              { name: "Spanish", flag: "/spain.png" },
-              { name: "Hindi", flag: "/india.png" },
-            ]}
-          />
-        </div>
-
-        {/* Education Section */}
-        <div className="col-span-12 sm:col-span-6 md:col-span-6">
+        {/* Education and Small Modules */}
+        <div className="col-span-12 md:col-span-6">
           <EducationSection
             title="Education"
             items={[
@@ -122,6 +63,51 @@ export default async function Home({
                 year: "2017-21",
               },
             ]}
+          />
+        </div>
+        <div className="col-span-12 md:col-span-6 flex flex-col gap-4">
+          <DesignToolsSection
+            title={dict.sections.designTools}
+            tools={[
+              { name: "Ai", bgColor: "bg-[#360300]", textColor: "text-[#da9f4c]" },
+              { name: "Ps", bgColor: "bg-[#0b172a]", textColor: "text-[#74aaf2]" },
+              { name: "Id", bgColor: "bg-[#59051e]", textColor: "text-[#d84b6f]" },
+              { name: "Xd", bgColor: "bg-[#480d30]", textColor: "text-[#de6ff0]" },
+            ]}
+          />
+          <EditingToolsSection
+            title={dict.sections.editingTools.title}
+            tools={[
+              { name: "Ae", bgColor: "bg-[#0b172a]", textColor: "text-[#74aaf2]" },
+              { name: "Pr", bgColor: "bg-[#59051e]", textColor: "text-[#d84b6f]" },
+              { name: "C4D", bgColor: "bg-[#480d30]", textColor: "text-[#de6ff0]" },
+            ]}
+          />
+          <LanguagesSection
+            title={dict.sections.languages.title}
+            languages={[
+              { name: "English", flag: "/uk.png" },
+              { name: "Spanish", flag: "/spain.png" },
+              { name: "Hindi", flag: "/india.png" },
+            ]}
+          />
+        </div>
+
+        {/* Experience Cards */}
+        <div className="col-span-12 sm:col-span-6 md:col-span-6">
+          <ExperienceCard
+            title={dict.sections.experience.freelance.title}
+            role={dict.sections.experience.freelance.role}
+            period={dict.sections.experience.freelance.period}
+            bullets={dict.sections.experience.freelance.bullets}
+          />
+        </div>
+        <div className="col-span-12 sm:col-span-6 md:col-span-6">
+          <ExperienceCard
+            title={dict.sections.experience.meetzed.title}
+            role={dict.sections.experience.meetzed.role}
+            period={dict.sections.experience.meetzed.period}
+            bullets={dict.sections.experience.meetzed.bullets}
           />
         </div>
 
