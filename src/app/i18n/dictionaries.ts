@@ -14,19 +14,37 @@ type EducationItem = {
   period: string;
 };
 
+type PortfolioItem = {
+  name: string;
+  url: string;
+  icon: string;
+};
+
+type LanguageItem = {
+  name: string;
+  flag: string;
+};
+
+type DetailItem = {
+  icon: string;
+  value: string;
+};
+
 export type Dictionary = {
   intro: string;
   sections: {
     interests: { title: string; items: string[] };
     experience: { freelance: ExperienceItem; meetzed: ExperienceItem };
     designTools: string;
+    editingTools: { title: string; tools: string[] };
+    languages: { title: string; items: LanguageItem[] };
     education: {
       highSchool: EducationItem;
       diploma: EducationItem;
       graduation: EducationItem;
     };
-    editingTools: string;
-    languages: string;
+    portfolio: { title: string; items: PortfolioItem[] };
+    details: { title: string; items: DetailItem[] };
   };
   switcher: { label: string; es: string; en: string };
 };
@@ -64,6 +82,18 @@ const dictionaries: Record<Lang, Dictionary> = {
         },
       },
       designTools: "Herramientas de diseño",
+      editingTools: {
+        title: "Herramientas de edición",
+        tools: ["Ae", "Pr", "C4D"],
+      },
+      languages: {
+        title: "Idiomas",
+        items: [
+          { name: "Inglés", flag: "/flags/uk.png" },
+          { name: "Español", flag: "/flags/spain.png" },
+          { name: "Hindi", flag: "/flags/india.png" },
+        ],
+      },
       education: {
         highSchool: {
           title: "Secundaria",
@@ -84,8 +114,22 @@ const dictionaries: Record<Lang, Dictionary> = {
           period: "2017 - 21",
         },
       },
-      editingTools: "Herramientas de edición",
-      languages: "Idiomas",
+      portfolio: {
+        title: "Portafolio",
+        items: [
+          { name: "Behance", url: "https://behance.net", icon: "/icons/behance.png" },
+          { name: "Instagram", url: "https://instagram.com", icon: "/icons/instagram.png" },
+          { name: "YouTube", url: "https://youtube.com", icon: "/icons/youtube.png" },
+        ],
+      },
+      details: {
+        title: "Detalles",
+        items: [
+          { icon: "/icons/age.png", value: "26 años" },
+          { icon: "/icons/email.png", value: "iam@freelancer.com" },
+          { icon: "/icons/phone.png", value: "+91 9896052055" },
+        ],
+      },
     },
     switcher: { label: "Idioma", es: "Español", en: "Inglés" },
   },
@@ -121,6 +165,18 @@ const dictionaries: Record<Lang, Dictionary> = {
         },
       },
       designTools: "Design Tools",
+      editingTools: {
+        title: "Editing Tools",
+        tools: ["Ae", "Pr", "C4D"],
+      },
+      languages: {
+        title: "Languages",
+        items: [
+          { name: "English", flag: "/flags/uk.png" },
+          { name: "Spanish", flag: "/flags/spain.png" },
+          { name: "Hindi", flag: "/flags/india.png" },
+        ],
+      },
       education: {
         highSchool: {
           title: "High School",
@@ -136,13 +192,27 @@ const dictionaries: Record<Lang, Dictionary> = {
         },
         graduation: {
           title: "Graduation",
-          field: "Bachelor of fine Arts",
+          field: "Bachelor of Fine Arts",
           location: "IGNOU Delhi, India",
           period: "2017 - 21",
         },
       },
-      editingTools: "Editing Tools",
-      languages: "Languages",
+      portfolio: {
+        title: "Portfolio",
+        items: [
+          { name: "Behance", url: "https://behance.net", icon: "/icons/behance.png" },
+          { name: "Instagram", url: "https://instagram.com", icon: "/icons/instagram.png" },
+          { name: "YouTube", url: "https://youtube.com", icon: "/icons/youtube.png" },
+        ],
+      },
+      details: {
+        title: "Details",
+        items: [
+          { icon: "/icons/age.png", value: "26 years" },
+          { icon: "/icons/email.png", value: "iam@freelancer.com" },
+          { icon: "/icons/phone.png", value: "+91 9896052055" },
+        ],
+      },
     },
     switcher: { label: "Language", es: "Spanish", en: "English" },
   },

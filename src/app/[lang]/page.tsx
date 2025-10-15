@@ -1,7 +1,16 @@
-import Image from "next/image";
 import { getDictionary } from "../i18n/dictionaries";
 import { Lang, languages } from "../i18n/config";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import AvatarSection from "@/components/AvatarSection";
+import IntroSection from "@/components/IntroSection";
+import InterestsSection from "@/components/InterestsSection";
+import ExperienceCard from "@/components/ExperienceCard";
+import DesignToolsSection from "@/components/DesignToolsSection";
+import EditingToolsSection from "@/components/EditingToolsSection";
+import LanguagesSection from "@/components/LanguagesSection";
+import EducationSection from "@/components/EducationSection";
+import PortfolioSection from "@/components/PortfolioSection";
+import DetailsSection from "@/components/DetailsSection";
 
 export async function generateStaticParams() {
   return languages.map((lang) => ({ lang }));
@@ -19,161 +28,84 @@ export default async function Home({
     <div className="font-sans flex justify-center">
       <LanguageSwitcher currentLang={lang} />
       <main className="grid grid-cols-12 container mt-20 gap-10">
-        <span className="flex items-center justify-center col-span-3 row-span-2 bg-white rounded-2xl overflow-hidden">
-          <Image src="/avatar.jpg" alt="avatar" width={300} height={300} />
-        </span>
-
-        <p className="p-5 text-2xl text-white col-span-9 rounded-2xl bg-foreground">
-          {dict.intro}
-        </p>
-
-        <ul className="flex items-center col-span-9 gap-4 p-5 rounded-2xl bg-foreground">
-          <li className="text-white text-lg font-bold border-r pr-4">
-            {dict.sections.interests.title}
-          </li>
-          {dict.sections.interests.items.map((item) => (
-            <li
-              key={item}
-              className="flex items-center bg-background rounded-lg text-white text-sm px-4 py-2"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-
-        <article className="col-span-6 rounded-2xl bg-foreground p-10">
-          <section className="flex items-center justify-between border-b border-b-grey pb-10">
-            <header className="flex flex-col">
-              <h3 className="text-2xl font-bold text-white">
-                {dict.sections.experience.freelance.title}
-              </h3>
-              <p className="text-grey text-sm">
-                {dict.sections.experience.freelance.role}
-              </p>
-            </header>
-            <span className="bg-background rounded-lg text-white text-sm p-4">
-              {dict.sections.experience.freelance.period}
-            </span>
-          </section>
-          <ul className="list-disc list-inside text-white text-sm mt-6">
-            {dict.sections.experience.freelance.bullets.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
-        </article>
-
-        <article className="col-span-6 rounded-2xl bg-foreground p-10">
-          <section className="flex items-center justify-between border-b border-b-grey pb-10">
-            <header className="flex flex-col">
-              <h3 className="text-2xl font-bold text-white">
-                {dict.sections.experience.meetzed.title}
-              </h3>
-              <p className="text-grey text-sm">
-                {dict.sections.experience.meetzed.role}
-              </p>
-            </header>
-            <span className="bg-background rounded-lg text-white text-sm p-4">
-              {dict.sections.experience.meetzed.period}
-            </span>
-          </section>
-          <ul className="list-disc list-inside text-white text-sm mt-6">
-            {dict.sections.experience.meetzed.bullets.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
-        </article>
-
-        <ul className="flex gap-4 items-center col-span-6 rounded-2xl bg-foreground p-10">
-          <li className="text-white text-xl font-bold border-r pr-4">
-            {dict.sections.designTools}
-          </li>
-          <li className="flex items-center bg-[#360300] rounded-lg font-bold text-[#da9f4c] text-xl px-4 py-2">
-            Ai
-          </li>
-          <li className="flex items-center bg-[#0b172a] rounded-lg font-bold text-[#74aaf2] text-xl px-4 py-2">
-            Ps
-          </li>
-          <li className="flex items-center bg-[#59051e] rounded-lg font-bold text-[#d84b6f] text-xl px-4 py-2">
-            Id
-          </li>
-          <li className="flex items-center bg-[#480d30] rounded-lg font-bold text-[#de6ff0] text-xl px-4 py-2">
-            Xd
-          </li>
-        </ul>
-
-        <section className="flex flex-col gap-4 items-center col-span-6 row-span-3 rounded-2xl bg-foreground p-10">
-          <article className="flex items-center justify-between w-full border-b border-b-grey pb-8">
-            <span className="flex flex-col">
-              <h2 className="text-white text-3xl font-bold">
-                {dict.sections.education.highSchool.title}
-              </h2>
-              <p className="text-grey text-lg">
-                {dict.sections.education.highSchool.field}
-              </p>
-              <p className="text-grey text-sm">
-                {dict.sections.education.highSchool.location}
-              </p>
-            </span>
-            <span className="bg-background rounded-lg text-white text-sm p-4">
-              {dict.sections.education.highSchool.period}
-            </span>
-          </article>
-
-          <article className="flex items-center justify-between w-full border-b border-b-grey pb-8">
-            <span className="flex flex-col">
-              <h2 className="text-white text-3xl font-bold">
-                {dict.sections.education.diploma.title}
-              </h2>
-              <p className="text-grey text-lg">
-                {dict.sections.education.diploma.field}
-              </p>
-              <p className="text-grey text-sm">
-                {dict.sections.education.diploma.location}
-              </p>
-            </span>
-            <span className="bg-background rounded-lg text-white text-sm p-4">
-              {dict.sections.education.diploma.period}
-            </span>
-          </article>
-
-          <article className="flex items-center justify-between w-full">
-            <span className="flex flex-col">
-              <h2 className="text-white text-3xl font-bold">
-                {dict.sections.education.graduation.title}
-              </h2>
-              <p className="text-grey text-lg">
-                {dict.sections.education.graduation.field}
-              </p>
-              <p className="text-grey text-sm">
-                {dict.sections.education.graduation.location}
-              </p>
-            </span>
-            <span className="bg-background rounded-lg text-white text-sm p-4">
-              {dict.sections.education.graduation.period}
-            </span>
-          </article>
-        </section>
-
-        <ul className="flex gap-4 items-center col-span-6 rounded-2xl bg-foreground p-10">
-          <li className="text-white text-xl font-bold border-r pr-4">
-            {dict.sections.editingTools}
-          </li>
-          <li className="flex items-center bg-[#000155] rounded-lg font-bold text-[#a0a0f9] text-xl px-4 py-2">
-            Ae
-          </li>
-          <li className="flex items-center bg-[#02035e] rounded-lg font-bold text-[#9997f9] text-xl px-4 py-2">
-            Pr
-          </li>
-        </ul>
-
-        <ul className="flex gap-4 items-center col-span-6 rounded-2xl bg-foreground p-10">
-          <li className="text-white text-xl font-bold border-r pr-4">
-            {dict.sections.languages}
-          </li>
-          <li className="text-4xl">🇧🇴</li>
-          <li className="text-4xl">🇬🇧</li>
-          <li className="text-4xl">🇺🇸</li>
-        </ul>
+        <AvatarSection />
+        <IntroSection intro={dict.intro} />
+        <InterestsSection
+          title={dict.sections.interests.title}
+          items={dict.sections.interests.items}
+        />
+        <ExperienceCard
+          title={dict.sections.experience.freelance.title}
+          role={dict.sections.experience.freelance.role}
+          period={dict.sections.experience.freelance.period}
+          bullets={dict.sections.experience.freelance.bullets}
+        />
+        <ExperienceCard
+          title={dict.sections.experience.meetzed.title}
+          role={dict.sections.experience.meetzed.role}
+          period={dict.sections.experience.meetzed.period}
+          bullets={dict.sections.experience.meetzed.bullets}
+        />
+        <DesignToolsSection
+          title={dict.sections.designTools}
+          tools={[
+            { name: "Ai", bgColor: "bg-[#360300]", textColor: "text-[#da9f4c]" },
+            { name: "Ps", bgColor: "bg-[#0b172a]", textColor: "text-[#74aaf2]" },
+            { name: "Id", bgColor: "bg-[#59051e]", textColor: "text-[#d84b6f]" },
+            { name: "Xd", bgColor: "bg-[#480d30]", textColor: "text-[#de6ff0]" },
+          ]}
+        />
+        <EditingToolsSection
+          title={dict.sections.editingTools.title}
+          tools={[
+            { name: "Ae", bgColor: "bg-[#0b172a]", textColor: "text-[#74aaf2]" },
+            { name: "Pr", bgColor: "bg-[#59051e]", textColor: "text-[#d84b6f]" },
+            { name: "C4D", bgColor: "bg-[#480d30]", textColor: "text-[#de6ff0]" },
+          ]}
+        />
+        <LanguagesSection
+          title={dict.sections.languages.title}
+          languages={[
+            { name: "English", flag: "/flags/uk.png" },
+            { name: "Spanish", flag: "/flags/spain.png" },
+            { name: "Hindi", flag: "/flags/india.png" },
+          ]}
+        />
+        <EducationSection
+          title="Education"
+          items={[
+            {
+              name: "High School",
+              description: "Humanities, Delhi Cantonment, India",
+              year: "2017",
+            },
+            {
+              name: "Diploma",
+              description: "Animation and Graphic Design, Delhi, India",
+              year: "2017-18",
+            },
+            {
+              name: "Graduation",
+              description: "Bachelor of Fine Arts, IGNOU Delhi, India",
+              year: "2017-21",
+            },
+          ]}
+        />
+        <PortfolioSection
+          title={dict.sections.portfolio.title}
+          links={[
+            { name: "Behance", url: "https://behance.net", icon: "/icons/behance.png" },
+            { name: "Instagram", url: "https://instagram.com", icon: "/icons/instagram.png" },
+            { name: "YouTube", url: "https://youtube.com", icon: "/icons/youtube.png" },
+          ]}
+        />
+        <DetailsSection
+          details={[
+            { icon: "/icons/age.png", value: "26 years" },
+            { icon: "/icons/email.png", value: "iam@freelancer.com" },
+            { icon: "/icons/phone.png", value: "+91 9896052055" },
+          ]}
+        />
       </main>
     </div>
   );
